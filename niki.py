@@ -1,3 +1,4 @@
+from cProfile import label
 from main import Telepules
 
 def Hany(lista, rang, filt):
@@ -10,6 +11,12 @@ def Nep(lista, rang, filt):
     for elem in lista:
         if filt(elem) and elem.rang == rang:
             print(f"{elem.nev}: {elem.nepesseg} fő")
+
+def Leg(lista, filt):
+    leg = lista[0].nepesseg
+    for elem in lista:
+        if filt(elem, leg): leg = elem.nepesseg
+    return(leg)
 
 print("1)	Hány település található az input fájlban?")
 print(len(Telepules.lista))
@@ -44,7 +51,9 @@ print("14)	Írja ki a város rangú települések közül az 5000 főnél alacso
 Nep(Telepules.lista, "város", lambda x: x.nepesseg < 5000)
 
 print("15)	Mennyi a legnépesebb település lélekszáma?")
+print(Leg(Telepules.lista, lambda x,y: x.nepesseg > y))
 print("16)	Mennyi a legalacsonyabb népességű település lélekszáma?")
+print(Leg(Telepules.lista, lambda x,y: x.nepesseg < y))
 
 print("17)	Melyik a legnépesebb település? Írja ki a település nevét és lélekszámát!")
 print("18)	Melyik a legalacsonyabb népességű település? Írja ki a település nevét és lélekszámát!")
