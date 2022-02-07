@@ -6,6 +6,11 @@ def Hany(lista, rang, filt):
         if filt(elem) and elem.rang == rang: res+=1
     return res
 
+def Nep(lista, rang, filt):
+    for elem in lista:
+        if filt(elem) and elem.rang == rang:
+            print(f"{elem.nev}: {elem.nepesseg} fő")
+
 print("1)	Hány település található az input fájlban?")
 print(len(Telepules.lista))
 
@@ -30,9 +35,13 @@ print("10)	Hány város rangú település található a Szentesi kistérségben
 print(Hany(Telepules.lista, "város", lambda x: x.kister_bes == "Szentesi"))
 
 print("11)	Írja ki a község rangú települések közül az 1000 főnél népesebb települések nevét és népességét!")
+Nep(Telepules.lista, "község", lambda x: x.nepesseg > 1000)
 print("12)	Írja ki a város rangú települések közül az 10000 főnél népesebb települések nevét és népességét!")
+Nep(Telepules.lista, "város", lambda x: x.nepesseg > 1000)
 print("13)	Írja ki a község rangú települések közül az 1000 főnél alacsonyabb népességű települések nevét és népességét!")
+Nep(Telepules.lista, "község", lambda x: x.nepesseg < 1000)
 print("14)	Írja ki a város rangú települések közül az 5000 főnél alacsonyabb népességű települések nevét és népességét!")
+Nep(Telepules.lista, "város", lambda x: x.nepesseg < 5000)
 
 print("15)	Mennyi a legnépesebb település lélekszáma?")
 print("16)	Mennyi a legalacsonyabb népességű település lélekszáma?")
