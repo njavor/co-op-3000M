@@ -44,16 +44,16 @@ fourteen = [x for x in Telepules.lista if x.rang == "város" and x.nepesseg < 50
 for elem in fourteen: print(f"{elem.nev}: {elem.nepesseg}")
 
 print("15)	Mennyi a legnépesebb település lélekszáma?")
-nagyN = Leg(Telepules.lista, lambda x,y: x.nepesseg > y.nepesseg)
-print(f"{nagyN.nepesseg} fő")
+nN = max(Telepules.lista, key= lambda x: x.nepesseg)
+print(f"{nN.nepesseg} fő")
 print("16)	Mennyi a legalacsonyabb népességű település lélekszáma?")
-kisN = Leg(Telepules.lista, lambda x,y: x.nepesseg < y.nepesseg)
-print(f"{kisN.nepesseg} fő")
+kN = min(Telepules.lista, key= lambda x: x.nepesseg)
+print(f"{kN.nepesseg} fő")
 
 print("17)	Melyik a legnépesebb település? Írja ki a település nevét és lélekszámát!")
-print(f"{nagyN.nev}: {nagyN.nepesseg} fő")
+print(f"{nN.nev}: {nN.nepesseg} fő")
 print("18)	Melyik a legalacsonyabb népességű település? Írja ki a település nevét és lélekszámát!")
-print(f"{kisN.nev}: {kisN.nepesseg} fő")
+print(f"{kN.nev}: {kN.nepesseg} fő")
 
 print("37)	Melyik településen a legrosszabb a lakáshelyzet? (Egy lakásra a legtöbb lakos jut.)")
 print(Bad(Telepules.lista).nev)
