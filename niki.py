@@ -17,6 +17,13 @@ def Leg(lista, filt):
         if filt(elem, leg): leg = elem
     return(leg)
 
+def Bad(lista):
+    worst = lista[0]
+    for elem in lista:
+        if (worst.nepesseg / worst.lakossag) < (elem.nepesseg / elem.lakossag):
+            worst = elem
+    return worst
+
 print("1)	Hány település található az input fájlban?")
 print(len(Telepules.lista))
 
@@ -60,3 +67,6 @@ print("17)	Melyik a legnépesebb település? Írja ki a település nevét és 
 print(f"{nagyN.nev}: {nagyN.nepesseg} fő")
 print("18)	Melyik a legalacsonyabb népességű település? Írja ki a település nevét és lélekszámát!")
 print(f"{kisN.nev}: {kisN.nepesseg} fő")
+
+print("37)	Melyik településen a legrosszabb a lakáshelyzet? (Egy lakásra a legtöbb lakos jut.)")
+print(Bad(Telepules.lista).nev)
