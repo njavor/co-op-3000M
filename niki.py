@@ -1,22 +1,5 @@
 from main import Telepules
 
-def Hany(lista, rang, filt):
-    res = 0
-    for elem in lista:        
-        if filt(elem) and elem.rang == rang: res+=1
-    return res
-
-def Nep(lista, rang, filt):
-    for elem in lista:
-        if filt(elem) and elem.rang == rang:
-            print(f"{elem.nev}: {elem.nepesseg} fő")
-
-def Leg(lista, filt):
-    leg = lista[0]
-    for elem in lista:
-        if filt(elem, leg): leg = elem
-    return(leg)
-
 def Bad(lista):
     worst = lista[0]
     for elem in lista:
@@ -28,33 +11,37 @@ print("1)	Hány település található az input fájlban?")
 print(len(Telepules.lista))
 
 print("2)	Hány község rangú település található?")
-print(Hany(Telepules.lista, "község", lambda x: True))
+print(len(list(filter(lambda x: x.rang == "község",Telepules.lista))))
 print("3)	Hány város rangú település található?")
-print(Hany(Telepules.lista, "város", lambda x: True))
+print(len(list(filter(lambda x: x.rang == "város",Telepules.lista))))
 print("4)	Van-e falu rangú település?")
-print("Van" if 0 < Hany(Telepules.lista, "falu", lambda x: True) else "Nincs")
+print("Van" if 0 < len(list(filter(lambda x: x.rang == "falu" and x.kister_bes == "Makói",Telepules.lista))) else "Nincs")
 
 print("5)	Hány község rangú település található a Makói kistérségben?")
-print(Hany(Telepules.lista, "község", lambda x: x.kister_bes == "Makói"))
+print(len(list(filter(lambda x: x.rang == "község" and x.kister_bes == "Makói",Telepules.lista)))) #Farkasról copy-zva
 print("6)	Hány község rangú település található a Szegedi kistérségben?")
-print(Hany(Telepules.lista, "község", lambda x: x.kister_bes == "Szegedi"))
+print(len(list(filter(lambda x: x.rang == "község" and x.kister_bes == "Szegedi",Telepules.lista))))
 print("7)	Hány község rangú település található a Szentesi kistérségben?")
-print(Hany(Telepules.lista, "község", lambda x: x.kister_bes == "Szentesi"))
+print(len(list(filter(lambda x: x.rang == "község" and x.kister_bes == "Szentesi",Telepules.lista))))
 print("8)	Hány város rangú település található a Makói kistérségben?")
-print(Hany(Telepules.lista, "város", lambda x: x.kister_bes == "Makói"))
+print(len(list(filter(lambda x: x.rang == "város" and x.kister_bes == "Makói",Telepules.lista))))
 print("9)	Hány város rangú település található a Szegedi kistérségben?")
-print(Hany(Telepules.lista, "város", lambda x: x.kister_bes == "Szegedi"))
+print(len(list(filter(lambda x: x.rang == "város" and x.kister_bes == "Szegedi",Telepules.lista))))
 print("10)	Hány város rangú település található a Szentesi kistérségben?")
-print(Hany(Telepules.lista, "város", lambda x: x.kister_bes == "Szentesi"))
+print(len(list(filter(lambda x: x.rang == "város" and x.kister_bes == "Szentesi",Telepules.lista))))
 
 print("11)	Írja ki a község rangú települések közül az 1000 főnél népesebb települések nevét és népességét!")
-Nep(Telepules.lista, "község", lambda x: x.nepesseg > 1000)
+eleven = [x for x in Telepules.lista if x.rang == "község" and x.nepesseg > 1000]
+for elem in eleven: print(f"{elem.nev}: {elem.nepesseg}")
 print("12)	Írja ki a város rangú települések közül az 10000 főnél népesebb települések nevét és népességét!")
-Nep(Telepules.lista, "város", lambda x: x.nepesseg > 1000)
+twelwe = [x for x in Telepules.lista if x.rang == "város" and x.nepesseg > 1000]
+for elem in twelwe: print(f"{elem.nev}: {elem.nepesseg}")
 print("13)	Írja ki a község rangú települések közül az 1000 főnél alacsonyabb népességű települések nevét és népességét!")
-Nep(Telepules.lista, "község", lambda x: x.nepesseg < 1000)
+thirteen = [x for x in Telepules.lista if x.rang == "község" and x.nepesseg < 1000]
+for elem in thirteen: print(f"{elem.nev}: {elem.nepesseg}")
 print("14)	Írja ki a város rangú települések közül az 5000 főnél alacsonyabb népességű települések nevét és népességét!")
-Nep(Telepules.lista, "város", lambda x: x.nepesseg < 5000)
+fourteen = [x for x in Telepules.lista if x.rang == "város" and x.nepesseg < 5000]
+for elem in fourteen: print(f"{elem.nev}: {elem.nepesseg}")
 
 print("15)	Mennyi a legnépesebb település lélekszáma?")
 nagyN = Leg(Telepules.lista, lambda x,y: x.nepesseg > y.nepesseg)
