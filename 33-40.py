@@ -12,16 +12,16 @@ def térségek_lakására_jutók(lista, bekistérség):
     népesség_ered/=lakások
     print (népesség_ered)
 print("33)	Írja ki a Makói kistérség településeinek egy lakásra jutó népesség számát!")
-print(térségek_lakására_jutók(Telepules.lista,"Makói"))
+térségek_lakására_jutók(Telepules.lista,"Makói")
 
 print("34)	Írja ki a Szentesi kistérség településeinek egy lakásra jutó népesség számát!")
-print(térségek_lakására_jutók(Telepules.lista,"Szentesi"))
+térségek_lakására_jutók(Telepules.lista,"Szentesi")
 
 print("35)	Írja ki a Szegedi kistérség településeinek egy lakásra jutó népesség számát!")
-print(térségek_lakására_jutók(Telepules.lista,"Szegedi"))
+térségek_lakására_jutók(Telepules.lista,"Szegedi")
 
 print("36)	Írja ki a Kisteleki kistérség településeinek egy lakásra jutó népesség számát!")
-print(térségek_lakására_jutók(Telepules.lista,"Kisteleki"))
+térségek_lakására_jutók(Telepules.lista,"Kisteleki")
 
 #38
 def kisterseg_telepules(lista):
@@ -35,7 +35,7 @@ def kisterseg_telepules(lista):
         i+=1  
     print(kisterseg)
 print("38)	Készítsen kimutatást kistérségi bontásban, amelyben megadja az egyes kistérségek településeinek a számát!")
-print(kisterseg_telepules(Telepules.lista))
+kisterseg_telepules(Telepules.lista)
 
 #39
 def kisterseg_lakosok(lista):
@@ -49,7 +49,7 @@ def kisterseg_lakosok(lista):
         i+=1  
     print(kisterseg) 
 print("39)	Készítsen kimutatást kistérségi bontásban, amelyben megadja az egyes kistérségek összlakosságának a számát!")
-print(kisterseg_lakosok(Telepules.lista))
+kisterseg_lakosok(Telepules.lista)
 
 #40
 def kisterseg_terület(lista):
@@ -63,5 +63,5 @@ def kisterseg_terület(lista):
         i+=1   
     print(kisterseg)
 print("40)	Készítsen kimutatást kistérségi bontásban, amelyben megadja az egyes kistérségek összterületének a nagyságát!")
-print(kisterseg_terület(Telepules.lista))
+kisterseg_terület(Telepules.lista)
 
