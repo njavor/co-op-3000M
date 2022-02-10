@@ -88,6 +88,10 @@ for elem in [x for x in Telepules.lista if x.kister_bes == "Kisteleki"]:
     print(round(elem.nepesseg / elem.terulet, 2))
 
 print("29) Igaz-e, hogy minden Makói kistérségű település lélekszáma nagyobb, mint 1000?")
+print(len(list(filter(lambda x: x.kister_bes == "Makói" and x.nepesseg <= 1000, Telepules.lista))) == 0)
 print("30) Igaz-e, hogy minden Szentesi kistérségű település lélekszáma kisebb, mint 10000?")
+print(len(list(filter(lambda x: x.kister_bes == "Szentesi" and x.nepesseg >= 10000, Telepules.lista))) == 0)
 print("31) Igaz-e, hogy minden Szegedi kistérségű település lélekszáma nagyobb, mint 2000?")
+print(len(list(filter(lambda x: x.kister_bes == "Szegedi" and x.nepesseg <= 2000, Telepules.lista))) == 0)
 print("32) Igaz-e, hogy minden Kisteleki kistérségű település lélekszáma kisebb, mint 10000?")
+print(len(list(filter(lambda x: x.kister_bes == "Kisteleki" and x.nepesseg >= 10000, Telepules.lista))) == 0)
