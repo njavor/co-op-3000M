@@ -50,3 +50,35 @@ print(f"{kN.nev}: {kN.nepesseg} fő")
 
 print("37)	Melyik településen a legrosszabb a lakáshelyzet? (Egy lakásra a legtöbb lakos jut.)")
 print(max(Telepules.lista, key= lambda x: x.nepesseg / x.lakossag).nev)
+
+#20-32
+
+print("20) Melyik a Szegedi kistérség legkisebb területű települése(i)?")
+_20 = [x for x in Telepules.lista if x.kister_bes == "Szegedi"]
+for elem in [x for x in _20 if x.terulet == min(_20, key = lambda x: x.terulet).terulet]:
+    print(elem.nev)
+print("21) Melyik a Szentesi kistérség legkisebb területű települése(i)?")
+_21 = [x for x in Telepules.lista if x.kister_bes == "Szentesi"]
+for elem in [x for x in _21 if x.terulet == min(_21, key = lambda x: x.terulet).terulet]:
+    print(elem.nev)
+print("22) Melyik a Makói kistérség legnépesebb települése(i)?")
+_22 = [x for x in Telepules.lista if x.kister_bes == "Makói"]
+for elem in [x for x in _22 if x.nepesseg == max(_22, key = lambda x: x.nepesseg).nepesseg]:
+    print(elem.nev)
+print("23) Melyik a Szegedi kistérség legnépesebb települése(i)?")
+_23 = [x for x in Telepules.lista if x.kister_bes == "Szegedi"]
+for elem in [x for x in _23 if x.nepesseg == max(_23, key = lambda x: x.nepesseg).nepesseg]:
+    print(elem.nev)
+print("24) Melyik a Szentesi kistérség legnépesebb települése(i)?")
+_24 = [x for x in Telepules.lista if x.kister_bes == "Szentesi"]
+for elem in [x for x in _24 if x.nepesseg == max(_24, key = lambda x: x.nepesseg).nepesseg]:
+    print(elem.nev)
+
+print("25) Írja ki a Makói kistérség településeinek népsűrűségét!")
+print("26) Írja ki a Szegedi kistérség településeinek népsűrűségét!")
+print("27) Írja ki a Szentesi kistérség településeinek népsűrűségét!")
+print("28) Írja ki a Kisteleki kistérség településeinek népsűrűségét!")
+print("29) Igaz-e, hogy minden Makói kistérségű település lélekszáma nagyobb, mint 1000?")
+print("30) Igaz-e, hogy minden Szentesi kistérségű település lélekszáma kisebb, mint 10000?")
+print("31) Igaz-e, hogy minden Szegedi kistérségű település lélekszáma nagyobb, mint 2000?")
+print("32) Igaz-e, hogy minden Kisteleki kistérségű település lélekszáma kisebb, mint 10000?")
