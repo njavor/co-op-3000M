@@ -75,9 +75,18 @@ for elem in [x for x in _24 if x.nepesseg == max(_24, key = lambda x: x.nepesseg
     print(elem.nev)
 
 print("25) Írja ki a Makói kistérség településeinek népsűrűségét!")
+for elem in [x for x in Telepules.lista if x.kister_bes == "Makói"]:
+    print(elem.nepesseg / elem.terulet)
 print("26) Írja ki a Szegedi kistérség településeinek népsűrűségét!")
+for elem in [x for x in Telepules.lista if x.kister_bes == "Szegedi"]:
+    print(elem.nepesseg / elem.terulet)
 print("27) Írja ki a Szentesi kistérség településeinek népsűrűségét!")
+for elem in [x for x in Telepules.lista if x.kister_bes == "Szentesi"]:
+    print(elem.nepesseg / elem.terulet)
 print("28) Írja ki a Kisteleki kistérség településeinek népsűrűségét!")
+for elem in [x for x in Telepules.lista if x.kister_bes == "Kisteleki"]:
+    print(elem.nepesseg / elem.terulet)
+    
 print("29) Igaz-e, hogy minden Makói kistérségű település lélekszáma nagyobb, mint 1000?")
 print("30) Igaz-e, hogy minden Szentesi kistérségű település lélekszáma kisebb, mint 10000?")
 print("31) Igaz-e, hogy minden Szegedi kistérségű település lélekszáma nagyobb, mint 2000?")
